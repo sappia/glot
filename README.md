@@ -13,3 +13,9 @@ Upgrade pip:
 `pip install --upgrade pip`
 Install requirements:
 `pip install -r requirements.txt`
+
+## Run the app using
+```uvicorn main:app --reload```
+
+## Access the API docs at
+```http://127.0.0.1:8000/docs```
