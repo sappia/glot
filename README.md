@@ -5,7 +5,7 @@ A project covering various NLP applications.
 The translate endpoint uses the [translators package](https://pypi.org/project/translators/) to translate given input text to the target language using the desired translator service (eg: google).
 
 ## translate_llm
-The transalte_llm endpoint uses a local llm (eg: llama3) to translate the given input text to the target language.
+The transalte_llm endpoint uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to translate the given input text to the target language.
 
 ## setup
 #### Create virtual environment:
@@ -18,13 +18,10 @@ The transalte_llm endpoint uses a local llm (eg: llama3) to translate the given 
 ```pip install -r requirements.txt```
 #### Download ollama:
 ```curl -fsSL https://ollama.com/install.sh | sh```
-
-## Running the app
 #### Run the local llm using
 ```ollama run llama3```
-
 #### Run the app using
 ```uvicorn main:app --reload```
 
-#### Access the API docs at
+## Access the API docs at
 ```http://127.0.0.1:8000/docs```
