@@ -8,15 +8,19 @@ The translate endpoint uses the [translators package](https://pypi.org/project/t
 The transalte_llm endpoint uses a local llm (eg: llama3) to translate the given input text to the target language.
 
 ## setup
-Create virtual environment:
+### Create virtual environment:
 ```python3 -m venv env```
-Activate env:
+
+### Activate env:
 ```source env/bin/activate```
-Upgrade pip:
+
+### Upgrade pip:
 ```pip install --upgrade pip```
-Install requirements:
+
+### Install requirements:
 ```pip install -r requirements.txt```
-Download ollama:
+
+### Download ollama:
 ```curl -fsSL https://ollama.com/install.sh | sh```
 
 ## Run the local llm using
