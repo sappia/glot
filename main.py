@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import translate
+from app.routers import translate
 
 app = FastAPI()
 
