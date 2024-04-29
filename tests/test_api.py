@@ -1,4 +1,3 @@
-from operator import contains
 from fastapi.testclient import TestClient
 
 from main import app
