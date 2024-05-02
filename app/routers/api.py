@@ -2,8 +2,9 @@ import logging
 import translators as ts
 
 from fastapi import APIRouter, HTTPException
-from app.schemas.translate import TranslatePayload, TranslateLLMPayload
+from app.schemas.models import TranslatePayload, TranslateLLMPayload, SummarizeLLMPayload
 from app.services.translate_llm import translate_llama3
+from app.services.summarize_llm import summarize_llama3
 
 router = APIRouter()
 
@@ -34,5 +35,18 @@ def translate_llm(data: TranslateLLMPayload):
     except Exception as e:
         logging.error(f"Failed to translate: {e}")
         raise HTTPException(status_code=422, detail=f"Failed to translate")
+
+    return {"output": output}
+
+
+@router.post("/summarize_llm", tags=["summarize_llm"])
+def summarize_llm(data: SummarizeLLMPayload):
+    input_link = data.input_link
+
+    try:
+        output = summarize_llama3(input_link)
+    except Exception as e:
+        logging.error(f"Failed to summarize: {e}")
+        raise HTTPException(status_code=422, detail=f"Failed to summarize")
 
     return {"output": output}

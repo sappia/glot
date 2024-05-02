@@ -12,3 +12,7 @@ class TranslateLLMPayload(BaseModel):
     input_text: str
     from_lang: str
     to_lang: str
+
+
+class SummarizeLLMPayload(BaseModel):
+    input_link: str
