@@ -1,5 +1,5 @@
 # glot overview
-A project covering various NLP applications.
+A project covering various NLP applications using [langchain] (https://python.langchain.com/docs/get_started/introduction) framework or other options.
 
 ## translate
 The translate endpoint uses the [translators package](https://pypi.org/project/translators/) to translate given input text to the target language using the desired translator service (eg: google).
