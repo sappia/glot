@@ -7,6 +7,9 @@ The translate endpoint uses the [translators package](https://pypi.org/project/t
 ## translate_llm
 The transalte_llm endpoint uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to translate the given input text to the target language.
 
+## summarize_llm
+The summarize_llm endpoint uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to summarize the text in a give web link.
+
 ## setup
 #### Create virtual environment:
 ```python3 -m venv env```
