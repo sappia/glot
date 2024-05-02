@@ -1,30 +1,40 @@
-# glot overview
-A project covering various NLP applications using [langchain] (https://python.langchain.com/docs/get_started/introduction) framework or other options.
+# Overview
+A project covering various NLP applications using [langchain] (https://python.langchain.com/docs/get_started/introduction) framework and other ways of doing it.
 
-## translate
-The translate endpoint uses the [translators package](https://pypi.org/project/translators/) to translate given input text to the target language using the desired translator service (eg: google).
+## Translation
+Translation is currently done in two ways. Each way has a separate endpoint. One way uses the [translators package](https://pypi.org/project/translators/) to translate given input text to the target language using the desired translator service (eg: google). The second way uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to translate the given input text to the target language.
 
-## translate_llm
-The transalte_llm endpoint uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to translate the given input text to the target language.
-
-## summarize_llm
-The summarize_llm endpoint uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to summarize the text in a give web link.
+## Summarization
+Summarization is done using a local llm, eg: [llama3](https://ollama.com/library/llama3) to summarize the given input text.
 
 ## setup
-#### Create virtual environment:
-```python3 -m venv env```
-#### Activate env:
-```source env/bin/activate```
-#### Upgrade pip:
-```pip install --upgrade pip```
-#### Install requirements:
-```pip install -r requirements.txt```
-#### Download ollama:
-```curl -fsSL https://ollama.com/install.sh | sh```
-#### Run the local llm using
-```ollama run llama3```
-#### Run the app using
+* Virtual environment
+```
+# Create virtual environment:
+python3 -m venv env
+# Activate env:
+source env/bin/activate
+```
+* Installation
+```
+# Upgrade pip:
+pip install --upgrade pip
+# Install requirements:
+pip install -r requirements.txt
+```
+
+* Local LLM
+```
+# Download ollama:
+curl -fsSL https://ollama.com/install.sh | sh
+# Run the local llm of choice using
+ollama run llama3
+```
+
+## Running the app
+Run the fastapi app using
 ```uvicorn main:app --reload```
 
-## Access the API docs at
+## API Docs
+Access the API docs to see the available endpoints at
 ```http://127.0.0.1:8000/docs```
