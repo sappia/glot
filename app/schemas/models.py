@@ -15,4 +15,4 @@ class TranslateLLMPayload(BaseModel):
 
 
 class SummarizeLLMPayload(BaseModel):
-    input_link: str
+    input_text: str

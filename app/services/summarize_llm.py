@@ -1,18 +1,28 @@
 from langchain.chains.summarize import load_summarize_chain
 from langchain_community.llms import Ollama
-from langchain_community.document_loaders import WebBaseLoader
+from langchain_core.prompts import PromptTemplate
+from langchain.docstore.document import Document
+from langchain.text_splitter import CharacterTextSplitter
 
 
-def summarize_llama3(input_link):
-    # load the doc to summarize
-    loader = WebBaseLoader(input_link)
-    docs = loader.load()
+def summarize_llama3(input_text):
+    # Split text
+    text_splitter = CharacterTextSplitter()
+    text = text_splitter.split_text(input_text)
+    # Create multiple documents
+    docs = [Document(page_content=t) for t in text]
 
     # Run Ollama
     llm = Ollama(temperature=0.0, model="llama3")
 
+    # Define prompt
+    prompt_template = """Write a concise summary of the following:
+    "{text}"
+    CONCISE SUMMARY:"""
+    prompt = PromptTemplate(template=prompt_template, input_variables=["text"])
+
     # Define LLM chain
-    chain = load_summarize_chain(llm, chain_type="refine")
+    chain = load_summarize_chain(llm, chain_type="stuff", prompt=prompt)
 
     summary = chain.run(docs)
     return summary

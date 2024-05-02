@@ -41,10 +41,10 @@ def translate_llm(data: TranslateLLMPayload):
 
 @router.post("/summarize_llm", tags=["summarize_llm"])
 def summarize_llm(data: SummarizeLLMPayload):
-    input_link = data.input_link
+    input_text = data.input_text
 
     try:
-        output = summarize_llama3(input_link)
+        output = summarize_llama3(input_text)
     except Exception as e:
         logging.error(f"Failed to summarize: {e}")
         raise HTTPException(status_code=422, detail=f"Failed to summarize")
