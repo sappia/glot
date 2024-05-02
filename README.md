@@ -23,7 +23,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-* Local LLM
+* Download local LLM
 ```
 # Download ollama:
 curl -fsSL https://ollama.com/install.sh | sh
