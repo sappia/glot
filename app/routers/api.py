@@ -2,7 +2,7 @@ import logging
 import translators as ts
 
 from fastapi import APIRouter, HTTPException
-from app.schemas.models import TranslatePayload, TranslateLLMPayload, SummarizeLLMPayload
+from app.schemas.payload import TranslatePayload, TranslateLLMPayload, SummarizeLLMPayload
 from app.services.translate_llm import translate_llama3
 from app.services.summarize_llm import summarize_llama3
 
