@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      ollama-pull:
+        condition: service_completed_successfully
+  ollama-pull:
+    image: docker/genai:ollama-pull
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - LLM=${LLM}
+  ollama-container:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_volume:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+volumes:
+  ollama_volume:

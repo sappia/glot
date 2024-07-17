@@ -24,3 +24,7 @@ app = FastAPI(
 
 
 app.include_router(api.router)
+
+@app.get('/')
+def read_root():
+    return {'message': 'Glot API'}
