@@ -1,10 +1,11 @@
 ## Overview
-A project covering various NLP applications using [langchain] (https://python.langchain.com/docs/get_started/introduction) framework and other ways of doing it.
+A project covering various NLP applications presented as services using frameworks like [langchain] (https://python.langchain.com/docs/get_started/introduction) framework and other packages.
 
-## Translation
+## Services
+### Translation
 Translation is currently done in two ways. Each way has a separate endpoint. One way uses the [translators package](https://pypi.org/project/translators/) to translate given input text to the target language using the desired translator service (eg: google). The second way uses a local llm, eg: [llama3](https://ollama.com/library/llama3) to translate the given input text to the target language.
 
-## Summarization
+### Summarization
 Summarization is done using a local llm, eg: [llama3](https://ollama.com/library/llama3) to summarize the given input text.
 
 ## Running the application using Docker
