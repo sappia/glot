@@ -33,10 +33,24 @@ docker compose down
 #### On application startup
 * Web server (Uvicorn) runs on ```http://0.0.0.0:8000```
 * Ollama (your chosen local LLM) runs on ```http://0.0.0.0:11434```
-* API Docs are accessible at ```http://127.0.0.1:8000/docs```
+* API Docs are accessible at ```http://0.0.0.0:8000/docs```
 
 #### Tests
 Tests can be run using pytest command inside the web docker container. The docker container can be accessed using ```docker exec -it <<container_name>> bash```
+
+## Endpoints
+* Available endpoints can be seen and requests to endpoints can be made from ```http://0.0.0.0:8000/docs```
+
+OR
+
+* By running a `curl` command like below:
+```shell
+curl -X 'POST' 'http://0.0.0.0:8000/translate_llm' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{
+  "input_text": "Hello",
+  "from_lang": "english",
+  "to_lang": "french"
+}'
+```
 
 ## Running the app locally
 #### Setup
@@ -64,8 +78,8 @@ ollama run llama3
 ```
 
 #### Running the app
-Run the fastapi app using
-```uvicorn main:app --reload```
+Run the fastapi app from app directory using
+```fastapi dev main.py```
 
 #### API Docs
 Access the API docs to see the available endpoints at
@@ -73,17 +87,3 @@ Access the API docs to see the available endpoints at
 
 #### Tests
 Tests can be run using `pytest` command.
-
-## Endpoints
-* Available endpoints can be seen and requests to endpoints can be made from ```http://127.0.0.1:8000/docs```
-
-OR
-
-* By running a `curl` command like below:
-```shell
-curl -X 'POST' 'http://0.0.0.0:8000/translate_llm' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{
-  "input_text": "Hello",
-  "from_lang": "english",
-  "to_lang": "french"
-}'
-```

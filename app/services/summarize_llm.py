@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 
 
 load_dotenv(".env")
-ollama_base_url = os.getenv("OLLAMA_BASE_URL")
-llm_name = os.getenv("LLM")
+ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/")
+llm_name = os.getenv("LLM", "llama3")
 
 def summarize_llama3(input_text):
     # Split text
